@@ -86,20 +86,40 @@ Achtung bitte lies die folgenden Hinweise bevor du mit dem Aufbau anfängst. Wir
 \section{Vorwort}
 
 Alles was du hier siehst und liest ist zum größten Teil anhand der Version 00.02.00 erstellt worden. Leiterbahnführung und Beschriftung können sich daher an manchen Stellen leicht unterscheiden. In der Regel ist im dazugehörigen Text darauf aber hingewiesen und sollte kein Problem darstellen.\\
+Die Bauteile R4 und R5 sollten sich nicht mehr auf deinem Board befinden. Anstelle von D1 sollte sich auf deinem Board mittig Q1 befinden. \\ \newline
 
-Außerdem gibt es zu einigen Komponenten mehrere Möglichkeiten der Bestückung oder diese zu befestigen. Lies daher erst einmal das komplette Unterkapitel, bis du auf die nächste Komponente stößt. Dann hast du einen Überblick welche Varianten es gibt und kannst anhand der Optionen die für dich passendste auswählen. Du bist von der Bauteilliste (BOM\footnote{bill of material}) hier her gekommen da du dir nicht sicher bist, wofür du bestimmte oder überhaupt welche Komponenten du brauchst? Auch dann kann es sich anbieten das entsprechende Kapitel zu überfliegen und dir so über die möglichen Optionen klar zu werden. Bilder erklären manchmal einfach besser als eine Tabelle es kann \\
+Außerdem gibt es zu einigen Komponenten mehrere Möglichkeiten der Bestückung oder diese zu befestigen. Lies daher erst einmal das komplette Unterkapitel, bis du auf die nächste Komponente stößt. Dann hast du einen Überblick welche Varianten es gibt und kannst anhand der Optionen die für dich passendste auswählen. Du bist von der Bauteilliste (BOM\footnote{bill of material; zu deutsch Teileliste}) hier her gekommen da du dir nicht sicher bist, wofür du bestimmte oder überhaupt welche Komponenten du brauchst? Auch dann kann es sich anbieten das entsprechende Kapitel zu überfliegen und dir so über die möglichen Optionen klar zu werden. Bilder erklären manchmal einfach besser als eine Tabelle es kann \\
 Du findest Fehler oder hast Fragen? Dann melde dich entweder in unserem Slack (\href{openbikesensor.org/slack}{openbikesensor.org/slack}) oder hinterlasse einen Issue in unserem Git \href{https://github.com/Friends-of-OpenBikeSensor/OpenBikeSensor_PCB_Building-Instructions}{https://github.com/Friends-of-OpenBikeSensor/OpenBikeSensor\_PCB\_Building-Instructions}. 
 
 
 
 \section{Vorbereitung}
 
+Bevor du anfängst mit Bestücken solltest du dir als Erstes das benötigte Werkzeug zurechtlegen. Was du währenddessen brauchen wirst (siehe Abbildung \ref{fig:20200726_121811}):
+
+\begin{itemize}
+	\item Lötkolben / Lötstation
+	\item Lötzinn
+	\item Seitenschneider
+	\item eine Flachzange oder eine Spitzzange zum Biegen und Halten
+	\item eine SMD-Pinzette (siehe Abbildung (TODO))
+	\item ein Cuttermesser
+	\item eine Abisolierzange
+	\item eine Entlötpumpe und Entlötlitze
+	\item ein Multimeter
+\end{itemize}
+
+
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.95\textwidth]{Grafiken/20200726_121811.jpg}
-	\caption{asd}
+	\caption{Überblick über das benötigte Werkzeug}
 	\label{fig:20200726_121811}
 \end{figure}
+
+Du hast dir die in Abbildung \ref{fig:20200726_121811} abgebildeten Werkzeuge genauer angesehen und die Lötstation und das Multimeter kosten mehrere 100 Euro? Keine Sorge, du brauchst nicht so teurers Equipment. Ich habe dieses Werkzeug nur verwendet, da ich es zur Verfügung habe! Du kannst natürlich auch günstigere Werkzeuge, z.B. ein Multimeter wie in Abbildung \ref{fig:20200726_121402} verwenden. Auch die Lötstation muss keine so teure sein. Eine klare Empfehlung ist nur eine Lötstation oder -kolben mit einer einstellbaren Temperaturregelung. Du solltest mit bleihaltigem Lötzinn in einem Temperaturbereich von 300-\SI{330}{\degreeCelsius} und mit bleifreiem Lötzinn von 350-\SI{370}{\degreeCelsius} arbeiten. Lötkolben mit fester Temperaturregelung regeln meist auf \SI{450}{\degreeCelsius} und verbrennen zu schnell das im Lötzinn enthaltene Flussmittel.\\
+Hilfreich kann es daher auch sein Flussmittel entweder in Form von Paste oder als Dosierstift zu haben. Hast du dies nicht zur Hand, kannst du auch mit der Entlötpumpe oder der Entlötlitze das alte Lötzinn entfernen und dann frisches Lötzinn mit frischen Flussmittel auf die Lötstelle geben. Manchmal reicht es auch schon nur ein wenig neues Lötzinn dazu zu geben um die Stelle ,,aufzufrischen''. Beachte aber, dass nicht zu viel Zinn auf deiner Lötstelle ist!
+
 
 \begin{figure}[H]
 	\centering
@@ -107,6 +127,9 @@ Du findest Fehler oder hast Fragen? Dann melde dich entweder in unserem Slack (\
 	\caption{günstiges Multimeter}
 	\label{fig:20200726_121402}
 \end{figure}
+
+Ebenfalls hilfreich können Halterungen für die Platine sein. Das können zum einen solch günstige Spannrahmen in schwarz-blau wie in Abbildung \ref{fig:20200726_121444} sein oder auch ein solcher Kugelkopfschraubstock. Diese Schraubstöcke sind meist etwas teurer, sind aber extrem hilfreich wenn du öfter lötest. Die Platine oder auch andere Werkstücke wie Stecker lassen sich dort schnell und flexibel einspannen und in beliebigen Winkeln ausrichten. \\ \newline
+Tip: richte dich nicht nach dem Werkstück aus, sondern versuche immer das Werkstück nach deiner besten Arbeitsposition auszurichten! Nur wenn du bequem sitzt und deine Werkzeuge (in diesem Fall Lötkolben, Zange/Pinzette und Lötzinn) ideal bedienen kannst erreichst du ein optimales Ergebnis! Nimm dir also die Zeit. Mit der Zeit passiert das dann ganz automatisch.
 
 \begin{figure}[H]
 	\centering
@@ -119,6 +142,69 @@ Du findest Fehler oder hast Fragen? Dann melde dich entweder in unserem Slack (\
 \newpage
 \section{Bestücken der Platine}
 \subsection{Pull-Up Widerstände für I$^2$C des Displays}
+
+Beginnen wir nun mit dem wahrscheinlich schwierigsten Bauteil für Anfänger, den SMD-Widerständen R6 und R7. Aber keine Sorge, das schaffst du und klingt schwieriger als es ist. Wir fangen gerade deshalb damit an, da das Board noch komplett leer ist und dir somit keinerlei Hindernisse im Weg sind. Du hast also allen Platz und Ruhe die du brauchst.
+\\ \newline
+Diese Widerstände waren zuerst nur als Backup gedacht und sind daher in SMD ausgeführt. Im Betrieb der Prototypen hat sich allerdings herausgestellt, dass sie doch benötigt werden.\\ \newline
+
+Um den Widerstand nun anzulöten verzinne zuerst eines der Pads mit etwas Lötzinn (Abbildung \ref{fig:20200922_185326}). Es empfiehlt sich das Pad zu nehmen, an dem an wenigsten Kupfer ist und das möglichst nicht an eine große Fläche führt. Warum? Die Fläche wirkt wie ein Kühlkörper. Der Lötkolben muss dann nicht nur das Pad vorwärmen sondern auch einen Teil der großen Fläche. Dein Lötkolben hat dann wohlmöglich mehr zu kämpfen und braucht mehr Zeit bis das Pad auf Temperatur ist.\\ \newline
+Nimm nun mit der SMD-Pinzette den Widerstand auf und lege ihn auf das Pad (Abbildung \ref{fig:20200922_185414}). Jetzt kannst du mit dem Lötkolben das zuvor aufgebrachte Lötzinn heiß machen und den Widerstand mit der Pinzette vorsichtig herunterdrücken (Abbildung \ref{fig:20200922_185449}). Die Lötzstelle muss dafür erst einmal nicht schön aussehen, der Widerstand soll nur in seiner gewollten Position halten.\\ \newline
+Nun kannst du die zweite Seite anlöten. Wenn du damit zufrieden bist kannst du die erste Lötstelle nacharbeiten. Dies kannst du entweder tun indem du nochmal etwas Lötzinn hinzu gibst oder etwas Flussmittel aus anderer Quelle (Flussmittelpaste oder Flussmittelstift) hinzu gibst. Hast du nun zu viel Lötzinn auf der Stelle kannst du entweder versuchen mit zügigem Streichen des Lötkolbens über die Lötstelle etwas Lötzinn zu entfernen oder Entlötlitze zur Hilfe nehmen. Achte dabei darauf, dass du mit die Entlötlitze erst etwas heiß machst du eher auf die Lötstelle tumpfst anstatt zu reiben. Wenn du mit der Entlötlitze ,,rubbelst'' kannst du auch Kupfer ablösen, wenn du zu grob bist.\\ \newline
+Hab keine Angst Entlötlitze oder die Entlötpumpe zu nutzen. Jeder macht mal Fehler. In Abbildung \ref{fig:20200726_184519} siehst du meine verbrauchte Menge, die ich während der gesamten Bestückung verwendet habe. Dies hat überhaupt nichts damit zu tun das man schlecht ist! Es ist ein Werkzeug, nutze es.
+
+\begin{minipage}[t]{0.49\textwidth}
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.99\textwidth]{Grafiken/20200922_185326.jpg}
+	\caption{ein Pad von R6 vorverzinnen}
+	\label{fig:20200922_185326}
+\end{figure}
+\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.99\textwidth]{Grafiken/20200922_185414.jpg}
+	\caption{Widerstand mit Pinzette aufsetzen}
+	\label{fig:20200922_185414}
+\end{figure}
+\end{minipage}
+
+\begin{minipage}[t]{0.49\textwidth}
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.99\textwidth]{Grafiken/20200922_185449.jpg}
+	\caption{Widerstand an einer Seite anlöten}
+	\label{fig:20200922_185449}
+\end{figure}  
+\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.99\textwidth]{Grafiken/20200726_184519.jpg}
+	\caption{verwendete Menge Entlötlitze}
+	\label{fig:20200726_184519}
+\end{figure}
+\end{minipage}
+\newline
+
+In den bisherigen Bildern wurde ein Widerstand in der Gehäusegröße 0805 verwendet. Dieser Widerstand ist dort auch vorgesehen, allerdings hast du vielleicht bereits gemerkt, dass die Pads relativ großzügig gestaltet sind. Es ist daher auch möglich Widerstände in der etwas größeren Gehäusegröße 1206 zu verwenden. Einen Vergleich dieser beiden Größen siehst du in den Abbildungen \ref{fig:R0805} und \ref{fig:R1206}. Wenn du dich fragst was diese Nummern für die Gehäusegrößen zu bedeuten haben, dann findest du \href{https://de.wikipedia.org/wiki/Chip-Bauform}{hier} weitere Informationen.
+
+\begin{minipage}[t]{0.49\textwidth}
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.99\textwidth]{Grafiken/IMG_-vz92y3.jpg}
+	\caption{Widerstand im Package 0805}
+	\label{fig:R0805}
+\end{figure}
+\end{minipage}
+\begin{minipage}[t]{0.49\textwidth}
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.99\textwidth]{Grafiken/IMG_l2oi9e.jpg}
+	\caption{Widerstand im Package 1206}
+	\label{fig:R1206}
+\end{figure}
+\end{minipage}
 
 \subsection{Spannungsversorgung}
 
